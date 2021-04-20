@@ -52,18 +52,22 @@ it("Should create a new (object) Item with name and price", function() {
 
 it("Should return an array containing all items in cart")
 
-it("Should add a new item to the shopping cart")
+it("Should add a new item to the shopping cart", function() {
+  const item = utils.createItem("apple", 0.99)
+  utils.addItemToCart(item)
+  expect(utils.getNumItemsInCart()).to.equal(1)
+})
 
-it("Should return the number of items in the cart")
+it("Should return the number of items in the cart", function() {
+  const item = utils.createItem("apple", 0.99)
+  expect(utils.getNumItemsInCart()).to.equal(0)
+})
 
-it("Should remove items from cart")
+it("Should remove items from cart", function() {
+  const item = utils.createItem("apple", 0.99)
+  utils.addItemToCart(item)
+  expect(utils.getNumItemsInCart()).to.equal(1)
+  utils.removeItemFromCart(item)
+  expect(utils.getNumItemsInCart()).to.equal(0)
+})
 
-// ========================================================
-// Stretch Challenges
-// ========================================================
-
-it("Should update the count of items in the cart")
-
-it("Should validate that an empty cart has 0 items")
-
-it("Should return the total cost of all items in the cart")
